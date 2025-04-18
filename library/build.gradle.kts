@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
+    id("org.jetbrains.kotlin.plugin.serialization") version("1.8.10")
 }
 
 group = "io.github.octestx.krecall.plugins.basiclib"
@@ -25,6 +26,9 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
+                implementation(libs.basic.multiplatform.lib)
+                implementation(libs.basic.multiplatform.ui.lib)
+                implementation(libs.kotlinx.serialization.json)
             }
         }
         val commonTest by getting {
