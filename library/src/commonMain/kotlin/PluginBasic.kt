@@ -6,17 +6,20 @@ import org.koin.java.KoinJavaComponent.get
 import java.io.File
 
 abstract class PluginBasic {
-    @Volatile
-    private var _context: IPluginContext? = null
-    val context: IPluginContext? = _context
-    abstract fun load()
+    private lateinit var _metadata: PluginMetadata
+    val metadata: PluginMetadata get() = _metadata
+    fun load(metadata: PluginMetadata) {
+        if (this::_metadata.isInitialized) return
+        _metadata = metadata
+        load2()
+    }
+    abstract fun load2()
     abstract fun selected()
     abstract fun unselected()
     @Composable
     abstract fun UI()
     protected abstract suspend fun tryInitInner(): InitResult
     suspend fun tryInit(context: IPluginContext): InitResult {
-        _context = context
         return if (initialized.value.not()) tryInitInner()
         else InitResult.Success
     }
