@@ -6,6 +6,9 @@ import org.koin.java.KoinJavaComponent.get
 import java.io.File
 
 abstract class PluginBasic {
+    @Volatile
+    private var _context: IPluginContext? = null
+    val context: IPluginContext? = _context
     abstract fun load()
     abstract fun selected()
     abstract fun unselected()
@@ -13,6 +16,7 @@ abstract class PluginBasic {
     abstract fun UI()
     protected abstract suspend fun tryInitInner(): InitResult
     suspend fun tryInit(context: IPluginContext): InitResult {
+        _context = context
         return if (initialized.value.not()) tryInitInner()
         else InitResult.Success
     }
