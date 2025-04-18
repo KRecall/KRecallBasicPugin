@@ -52,13 +52,13 @@ mavenPublishing {
 
     signAllPublications()
 
-    coordinates(group.toString(), "lib", version.toString())
+    coordinates(group.toString(), "library", version.toString())
 
     pom {
         name = "KRecall Plugin Dev Lib"
         description = "KRecall Plugin Dev Lib"
         inceptionYear = "2025"
-        url = "https://github.com/kotlin/multiplatform-library-template/"
+        url = "https://github.com/KRecall/KRecallBasicPugin/"
         licenses {
             license {
                 name = "Apache-2.0"
@@ -67,15 +67,15 @@ mavenPublishing {
         }
         developers {
             developer {
-                id = "XXX"
-                name = "YYY"
-                url = "ZZZ"
+                id = "OCTestX"
+                name = "OCTestX"
+                url = "https://github.com/OCTestX"
             }
         }
         scm {
-            url = "XXX"
-            connection = "YYY"
-            developerConnection = "ZZZ"
+            url = "https://github.com/KRecall/KRecallBasicPugin"
+            connection = "scm:git:git://github.com/KRecall/KRecallBasicPugin.git"
+            developerConnection = "scm:git:ssh://github.com/KRecall/KRecallBasicPugin.git"
         }
     }
 }
