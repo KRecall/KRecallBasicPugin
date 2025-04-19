@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
+    id("org.jetbrains.kotlin.plugin.compose") version ("2.1.10")
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
@@ -10,7 +11,7 @@ plugins {
 }
 
 group = "io.github.octestx.krecall.plugins.basiclib"
-version = "1.1.2"
+version = "1.1.2F1"
 
 kotlin {
     jvm()
@@ -29,6 +30,7 @@ kotlin {
                 implementation(libs.basic.multiplatform.lib)
                 implementation(libs.basic.multiplatform.ui.lib)
                 implementation(libs.kotlinx.serialization.json)
+//                implementation("androidx.compose.runtime:runtime:1.5.4")
             }
         }
         val commonTest by getting {
