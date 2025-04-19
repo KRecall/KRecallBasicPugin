@@ -17,16 +17,16 @@ abstract class AbsStoragePlugin(): PluginBasic() {
      */
     abstract suspend fun getScreenData(timestamp: Long): Result<ByteArray>
     protected val imageDir: File by lazy {
-        File(get<IPluginContext>(IPluginContext::class.java).getPluginDir(), "ScreenImages").apply {
+        File(get<PluginContext>(PluginContext::class.java).getPluginDir(), "ScreenImages").apply {
             if (!exists()) mkdirs()
         }
     }
     protected val audioDir: File by lazy {
-        File(get<IPluginContext>(IPluginContext::class.java).getPluginDir(), "Audios").apply {
+        File(get<PluginContext>(PluginContext::class.java).getPluginDir(), "Audios").apply {
             if (!exists()) mkdirs()
         }
     }
-    protected fun mark(timestamp: Long, mark: String) = get<IPluginContext>(IPluginContext::class.java).addMark(timestamp, mark)
-    protected fun listTimestampWithMark(mark: String): List<Long> = get<IPluginContext>(IPluginContext::class.java).listTimestampWithMark(mark)
-    protected fun listTimestampWithNotMark(mark: String): List<Long> = get<IPluginContext>(IPluginContext::class.java).listTimestampWithNotMark(mark)
+    protected fun mark(timestamp: Long, mark: String) = get<PluginContext>(PluginContext::class.java).addMark(timestamp, mark)
+    protected fun listTimestampWithMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).listTimestampWithMark(mark)
+    protected fun listTimestampWithNotMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).listTimestampWithNotMark(mark)
 }
