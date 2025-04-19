@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 /**
  * A parameterless constructor is required when inheriting a plugin.
  */
-abstract class AbsOCRPlugin(): PluginBasic() {
+abstract class AbsOCRPlugin(metadata: PluginMetadata): PluginBasic(metadata) {
     abstract suspend fun recognize(screen: ByteArray): OCRResult
 }
 

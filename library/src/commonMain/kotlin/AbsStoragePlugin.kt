@@ -7,7 +7,7 @@ import java.io.OutputStream
 /**
  * A parameterless constructor is required when inheriting a plugin.
  */
-abstract class AbsStoragePlugin(): PluginBasic() {
+abstract class AbsStoragePlugin(metadata: PluginMetadata): PluginBasic(metadata) {
     abstract suspend fun requireImageOutputStream(timestamp: Long): OutputStream
     abstract suspend fun requireImageFileBitItNotExits(timestamp: Long): File
     abstract suspend fun requireAudioOutputStream(timestamp: Long): OutputStream

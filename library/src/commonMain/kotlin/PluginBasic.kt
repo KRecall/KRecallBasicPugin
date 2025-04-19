@@ -9,22 +9,19 @@ import org.koin.java.KoinJavaComponent.getKoin
 import java.io.File
 import java.util.*
 
-abstract class PluginBasic: AutoCloseable {
+abstract class PluginBasic(val metadata: PluginMetadata): AutoCloseable {
     companion object {
         const val KOIN_INJECT_SCOPE_NAME = "PluginBasicKoinInjectScope"
     }
-    val currentTmpId: String = UUID.randomUUID().toString()
+    private val currentTmpId: String = UUID.randomUUID().toString()
     // 声明作用域（需唯一ID）
     private val objectScope: Scope by lazy {
         getKoin().createScope(currentTmpId, named(KOIN_INJECT_SCOPE_NAME))
     }
 
     // 注入作用域内的依赖（延迟初始化）
-    val metadata: PluginMetadata by objectScope.inject {
-        parametersOf(currentTmpId)
-    }
     val environment: PluginEnvironment by objectScope.inject {
-        parametersOf(currentTmpId)
+        parametersOf(metadata)
     }
 
 
