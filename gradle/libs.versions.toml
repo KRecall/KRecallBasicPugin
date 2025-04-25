@@ -1,7 +1,7 @@
 [versions]
 agp = "8.5.2"
-basicMultiplatformLib = "0.0.8"
-basicMultiplatformUiLib = "0.0.6R1F1"
+basicMultiplatformLib = "0.1.0"
+basicMultiplatformUiLib = "0.1.0"
 kotlin = "2.1.10"
 android-minSdk = "24"
 android-compileSdk = "34"

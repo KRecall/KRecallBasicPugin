@@ -1,6 +1,6 @@
 package io.github.octestx.krecall.plugins.basic
 
-import io.github.kotlin.fibonacci.utils.OS
+import io.github.octestx.basic.multiplatform.common.utils.OS
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
