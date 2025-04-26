@@ -29,4 +29,12 @@ abstract class AbsStoragePlugin(metadata: PluginMetadata): PluginBasic(metadata)
     protected fun mark(timestamp: Long, mark: String) = get<PluginContext>(PluginContext::class.java).addMark(timestamp, mark)
     protected fun listTimestampWithMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).listTimestampWithMark(mark)
     protected fun listTimestampWithNotMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).listTimestampWithNotMark(mark)
+
+    /**
+     * @exception IllegalArgumentException if img is not a valid image
+     * @exception UnsupportedOperationException if haven't any implementation
+     * @exception Exception if any exception
+     */
+    @Throws(IllegalArgumentException::class, UnsupportedOperationException::class, Exception::class)
+    protected fun imageSimilarity(img1: ByteArray, img2: ByteArray): Double = get<PluginContext>(PluginContext::class.java).imageSimilarity(img1, img2)
 }
