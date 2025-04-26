@@ -8,9 +8,9 @@ abstract class PluginBasic(metadata: PluginMetadata): PluginBasicExt(metadata) {
     @Composable
     abstract fun UI()
 
-    protected abstract suspend fun tryInitInner(): InitResult
+    protected abstract suspend fun tryInitInner(context: PluginContext): InitResult
     suspend fun tryInit(context: PluginContext): InitResult {
-        return if (initialized.value.not()) tryInitInner()
+        return if (initialized.value.not()) tryInitInner(context)
         else InitResult.Success
     }
 
