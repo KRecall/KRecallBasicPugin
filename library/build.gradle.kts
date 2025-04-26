@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("org.jetbrains.kotlin.plugin.compose") version ("2.1.10")
+    id("org.jetbrains.compose") version ("1.7.0")
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.vanniktech.mavenPublish)
@@ -11,7 +12,7 @@ plugins {
 }
 
 group = "io.github.octestx.krecall.plugins.basiclib"
-version = "v1.3.0"
+version = "1.4.0"
 
 kotlin {
     jvm()
@@ -31,6 +32,13 @@ kotlin {
                 implementation(libs.basic.multiplatform.ui.lib)
                 implementation(libs.kotlinx.serialization.json)
 //                implementation("androidx.compose.runtime:runtime:1.5.4")
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.ui)
+                implementation(compose.components.resources)
+                implementation(compose.components.uiToolingPreview)
+                implementation(compose.animation)
             }
         }
         val commonTest by getting {
