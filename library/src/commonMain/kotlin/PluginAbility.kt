@@ -4,6 +4,9 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
 import io.github.octestx.basic.multiplatform.ui.ui.utils.ToastModel
 
+/**
+ * 插件能力
+ */
 abstract class PluginAbility {
     abstract fun setDrawerUI(content: @Composable ColumnScope.() -> Unit)
     abstract fun addMainTab(tabName: String, tabContent: @Composable () -> Unit)
