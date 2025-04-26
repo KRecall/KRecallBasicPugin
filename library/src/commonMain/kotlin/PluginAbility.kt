@@ -12,4 +12,5 @@ abstract class PluginAbility {
     suspend fun sendToast(text: String, type: ToastModel.Type = ToastModel.Type.Normal) {
         sendToast(ToastModel(text, type = type)) {}
     }
+    abstract suspend fun sendMessage(text: String)
 }
