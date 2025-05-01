@@ -1,6 +1,5 @@
 package io.github.octestx.krecall.plugins.basic
 
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
 import moe.tlaster.precompose.navigation.BackStackEntry
 
@@ -13,7 +12,7 @@ object PluginAbilityInterfaces {
      */
     interface DrawerUI {
         @Composable
-        fun ColumnScope.DrawerUIShader()
+        fun DrawerUIShader()
     }
 
     /**

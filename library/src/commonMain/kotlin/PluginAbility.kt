@@ -129,12 +129,12 @@ abstract class PluginAbility {
      * @param timestamp Target time point
      * @return Complete record data snapshot
      */
-    abstract fun getRecordDataByTimestamp(timestamp: Long): RecordData
+    abstract suspend fun getRecordDataByTimestamp(timestamp: Long): RecordData
 
     /**
      * Gets screen image capture by timestamp
      * @param timestamp Target time point
      * @return Raw image byte array
      */
-    abstract fun getRecordScreenImageByTimestamp(timestamp: Long): ByteArray
+    abstract suspend fun getRecordScreenImageByTimestamp(timestamp: Long): ByteArray
 }
