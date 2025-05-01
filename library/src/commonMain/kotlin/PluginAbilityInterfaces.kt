@@ -19,7 +19,7 @@ object PluginAbilityInterfaces {
      * 该界面会嵌到侧滑栏中底部导航栏
      */
     interface MainTabUI {
-        val tabName: String
+        val mainTabName: String
         @Composable
         fun MainTabUIShader()
     }
@@ -28,8 +28,9 @@ object PluginAbilityInterfaces {
      * 该界面会嵌到侧滑栏中的设置界面
      */
     interface SettingTabUI {
-        val tabName: String
-        val routers: Map<String, @Composable (Unit) -> Unit>
+        val settingTabName: String
+        @Composable
+        fun SettingTabUIShader()
     }
 
     /**
