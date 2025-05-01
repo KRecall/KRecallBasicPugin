@@ -8,6 +8,12 @@ import org.koin.java.KoinJavaComponent.getKoin
 import java.io.File
 import java.util.*
 
+/**
+ * KRecall插件加载器会根据metadata的信息例如支持的平台判断插件是否需要加载
+ * 如果KRecall插件加载器想要加载这个插件类,请确保这个类有一个(metadata: PluginMetadata)构造函数
+ * 他会将你定义的metadata数据传入
+ * 之后调用你的load函数
+ */
 abstract class PluginBasicExt(val metadata: PluginMetadata): AutoCloseable {
     companion object {
         const val KOIN_INJECT_SCOPE_NAME = "PluginBasicKoinInjectScope"
