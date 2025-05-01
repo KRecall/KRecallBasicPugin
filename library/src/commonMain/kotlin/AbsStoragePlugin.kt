@@ -26,7 +26,7 @@ abstract class AbsStoragePlugin(metadata: PluginMetadata): PluginBasic(metadata)
             if (!exists()) mkdirs()
         }
     }
-    protected fun mark(timestamp: Long, mark: String) = get<PluginContext>(PluginContext::class.java).addMark(timestamp, mark)
-    protected fun listTimestampWithMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).listTimestampWithMark(mark)
-    protected fun listTimestampWithNotMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).listTimestampWithNotMark(mark)
+    protected fun mark(timestamp: Long, mark: String) = get<PluginContext>(PluginContext::class.java).ability.addMark(timestamp, mark)
+    protected fun listTimestampWithMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).ability.listTimestampWithMark(mark)
+    protected fun listTimestampWithNotMark(mark: String): List<Long> = get<PluginContext>(PluginContext::class.java).ability.listTimestampWithNotMark(mark)
 }
