@@ -38,6 +38,7 @@ abstract class PluginBasicExt(val metadata: PluginMetadata): AutoCloseable {
     protected lateinit var context: PluginContext private set
     fun load(context: PluginContext) {
         this.context = context
+        loadInner(context)
     }
     abstract fun loadInner(context: PluginContext)
     abstract val initialized: StateFlow<Boolean>
