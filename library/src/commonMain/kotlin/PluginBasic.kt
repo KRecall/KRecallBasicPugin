@@ -12,10 +12,10 @@ abstract class PluginBasic(metadata: PluginMetadata): PluginBasicExt(metadata) {
     @Composable
     abstract fun UI()
 
-    protected abstract suspend fun tryInitInner(context: PluginContext): InitResult
-    suspend fun tryInit(context: PluginContext): InitResult {
+    protected abstract suspend fun tryInitInner(): InitResult
+    suspend fun tryInit(): InitResult {
         return if (initialized.value) InitResult.Success
-        else tryInitInner(context)
+        else tryInitInner()
     }
 
     sealed class InitResult {

@@ -35,7 +35,11 @@ abstract class PluginBasicExt(val metadata: PluginMetadata): AutoCloseable {
         objectScope.close()
     }
 
-    abstract fun load()
+    protected lateinit var context: PluginContext private set
+    fun load(context: PluginContext) {
+        this.context = context
+    }
+    abstract fun loadInner(context: PluginContext)
     abstract val initialized: StateFlow<Boolean>
     protected val pluginDir: File by lazy {
         environment.pluginDir
