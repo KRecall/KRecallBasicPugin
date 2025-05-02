@@ -1,5 +1,7 @@
 # KRecall Plugin Development Documentation
 
+Translations: [简体中文](MdDocs/KRecallBasicPluginDocs/README_CN.md)
+
 ## Basic Plugin Creation
 1. **Parent Class Selection Rules**:
     - Choose different parent classes based on plugin type
