@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "io.github.octestx.krecall.plugins.basiclib"
-version = "1.4.9"
+version = "2.0.0"
 
 kotlin {
     jvm()
