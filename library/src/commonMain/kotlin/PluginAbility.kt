@@ -1,7 +1,8 @@
 package io.github.octestx.krecall.plugins.basic
 
 import io.github.octestx.basic.multiplatform.ui.ui.utils.ToastModel
-import io.github.octestx.krecall.plugins.basic.model.RecordData
+import io.github.octestx.krecall.plugins.basic.model.SearchIndex
+import io.github.octestx.krecall.plugins.basic.model.SearchIndexResult
 
 /**
  * Core plugin capability interface providing common UI and navigation operations.
@@ -97,44 +98,25 @@ abstract class PluginAbility {
     abstract suspend fun setProcessingDataState(state: Boolean)
 
     /**
-     * Adds timestamp marker with custom tag
-     * @param timestamp Target time point
-     * @param mark Custom marker identifier
+     * Searches for records matching specified keywords
      */
-    abstract fun addMark(timestamp: Long, mark: String)
+    abstract suspend fun search(vararg keyword: String): SearchIndexResult
 
     /**
-     * Removes timestamp marker
-     * @param timestamp Target time point
-     * @param mark Marker identifier to remove
+     * all (Searches for records matching specified type and timestamp)'s pre available (various fromId) index
      */
-    abstract fun removeMark(timestamp: Long, mark: String)
+    abstract suspend fun preSearchIndex(type: String, timestamp: Long): List<SearchIndex>
 
     /**
-     * Lists all timestamps containing specified mark
-     * @param mark Marker identifier to filter
-     * @return List of matching timestamps
+     * all (Searches for records matching specified type and timestamp)'s next available (various fromId) index
      */
-    abstract fun listTimestampWithMark(mark: String): List<Long>
+    abstract suspend fun nextSearchIndex(type: String, timestamp: Long): List<SearchIndex>
 
     /**
-     * Lists all timestamps excluding specified mark
-     * @param mark Marker identifier to exclude
-     * @return List of non-matching timestamps
+     * list all (Searches for records matching specified type and timestamp)'s available (various fromId) index
      */
-    abstract fun listTimestampWithNotMark(mark: String): List<Long>
+    abstract suspend fun listAvailableSelectionSearchIndex(type: String, timestamp: Long): List<SearchIndex>
 
-    /**
-     * Retrieves recorded data by timestamp
-     * @param timestamp Target time point
-     * @return Complete record data snapshot
-     */
-    abstract suspend fun getRecordDataByTimestamp(timestamp: Long): RecordData
-
-    /**
-     * Gets screen image capture by timestamp
-     * @param timestamp Target time point
-     * @return Raw image byte array
-     */
-    abstract suspend fun getRecordScreenImageByTimestamp(timestamp: Long): ByteArray
+    abstract suspend fun <R> getRoverData(searchIndexId: String): R
+    abstract suspend fun  getRoverJsonData(searchIndexId: String): String
 }

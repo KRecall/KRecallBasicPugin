@@ -39,6 +39,9 @@ kotlin {
                 implementation(compose.components.resources)
                 implementation(compose.components.uiToolingPreview)
                 implementation(compose.animation)
+                implementation("org.ktorm:ktorm-core:4.1.1")
+                implementation("org.ktorm:ktorm-support-sqlite:4.1.1")
+                implementation("org.xerial:sqlite-jdbc:3.45.2.0")
             }
         }
         val commonTest by getting {
